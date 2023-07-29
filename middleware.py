@@ -6,6 +6,7 @@ from dispatcher import bot
 
 
 async def on_startup():
+    global chat_id
     await bot.set_webhook(f'notmeowmeow.ru/bot/305bot', drop_pending_updates=True)
     chat_id = {}
     try:
@@ -13,10 +14,6 @@ async def on_startup():
     except:
         print("chat_id_list не найден")
     print(chat_id)
-    return chat_id
-
-
-chat_id = on_startup()
 
 
 class RegisterCheck(BaseMiddleware):
@@ -44,4 +41,3 @@ class RegisterCheck(BaseMiddleware):
 async def on_shutdown():
     pickle.dump(chat_id, open('test_file', 'wb'))
     await bot.delete_webhook(drop_pending_updates=True)
-
