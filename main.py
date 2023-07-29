@@ -1,6 +1,6 @@
 from dispatcher import dp, bot
 from hendlers import register_handlers
-from middleware import chat_id, on_shutdown, on_startup
+from middleware import on_shutdown, on_startup
 from aiohttp.web import run_app
 from aiohttp.web_app import Application
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application

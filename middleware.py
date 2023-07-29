@@ -1,19 +1,13 @@
-import pickle
 from typing import Callable, Dict, Any, Awaitable, Union
 from aiogram import BaseMiddleware
 from aiogram.types import Message, CallbackQuery
 from dispatcher import bot
+import pickle
+from way import chat_id
 
 
 async def on_startup():
-    global chat_id
     await bot.set_webhook(f'notmeowmeow.ru/bot/305bot', drop_pending_updates=True)
-    chat_id = {}
-    try:
-        chat_id = pickle.load(open('test_file', 'rb'))
-    except:
-        print("chat_id_list не найден")
-    print(chat_id)
 
 
 class RegisterCheck(BaseMiddleware):

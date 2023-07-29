@@ -1,13 +1,22 @@
+import pickle
 from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import KeyboardButton, Message, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from decimal import Decimal
-from middleware import chat_id
+
 global count, last
 count = 0
 last = ""
+
+
+chat_id = {}
+try:
+    chat_id = pickle.load(open('test_file', 'rb'))
+except:
+    print("chat_id_list не найден")
+print(chat_id)
 
 
 async def begin(message: Message):
