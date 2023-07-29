@@ -2,9 +2,11 @@ import pickle
 from typing import Callable, Dict, Any, Awaitable, Union
 from aiogram import BaseMiddleware
 from aiogram.types import Message, CallbackQuery
+from dispatcher import bot
 
 
-def on_startup():
+async def on_startup():
+    await bot.set_webhook(f'notmeowmeow.ru/bot/305bot', drop_pending_updates=True)
     chat_id = {}
     try:
         chat_id = pickle.load(open('test_file', 'rb'))
@@ -39,5 +41,7 @@ class RegisterCheck(BaseMiddleware):
         return await handler(event, data)
 
 
-def on_shutdown():
+async def on_shutdown():
     pickle.dump(chat_id, open('test_file', 'wb'))
+    await bot.delete_webhook(drop_pending_updates=True)
+
