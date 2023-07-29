@@ -16,7 +16,6 @@ try:
     chat_id = pickle.load(open('test_file', 'rb'))
 except:
     print("chat_id_list не найден")
-print(chat_id)
 
 
 async def begin(message: Message):
@@ -60,7 +59,6 @@ async def other(message: Message):
         await message.answer("invalid number")
         return
     await message.answer(f"Число изменено на {message.text}! текущее число = {chat_id[message.chat.id]}")
-    print(chat_id)
     # except:
     #     await message.answer("message incorrect")
 
@@ -71,7 +69,6 @@ async def cancel(message: Message):
     chat_id[message.chat.id] = eval(
         f"{Decimal(str(chat_id[message.chat.id]))}{last}")
     await message.answer(f"Число изменено на {last}! текущее число = {chat_id[message.chat.id]}")
-    print(chat_id)
 
 
 async def delete(message: Message):
@@ -79,4 +76,3 @@ async def delete(message: Message):
     chat_id[message.chat.id] = 0
     last = '+0'
     await message.answer(f"Текущее число = {chat_id[message.chat.id]}")
-    print(chat_id)
