@@ -50,7 +50,7 @@ async def other(message: Message):
     try:
         text = Decimal(message.text.replace(',', '.'))
     except:
-        await message.answer("invalid conver ','")
+        await message.answer("invalid")
         return
     print(text, last)
     try:
@@ -68,8 +68,8 @@ async def other(message: Message):
 
 
 async def cancel(message: Message):
-    global count, last
-    count = eval(f"{Decimal(str(count))}{last}")
+    global last
+    last = 0
     chat_id[message.chat.id] = eval(
         f"{Decimal(str(chat_id[message.chat.id]))}{last}")
     await message.answer(f"Число изменено на {last}! текущее число = {chat_id[message.chat.id]}")
