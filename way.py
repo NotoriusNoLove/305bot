@@ -54,11 +54,8 @@ async def other(message: Message):
         return
     print(text, last)
     try:
-        if last == text:
-            chat_id[message.chat.id] += text
-        else:
-            chat_id[message.chat.id] += text
-            last = f"-{text}"
+        chat_id[message.chat.id] += Decimal(text)
+        last = f"-{text}"
     except Exception as e:
         print(e)
         await message.answer("invalid number")
@@ -69,10 +66,9 @@ async def other(message: Message):
 
 async def cancel(message: Message):
     global last
-
+    last = ""
     chat_id[message.chat.id] = eval(
         f"{Decimal(str(chat_id[message.chat.id]))}{last}")
-    last = ""
     await message.answer(f"Число изменено на {last}! текущее число = {chat_id[message.chat.id]}")
 
 
