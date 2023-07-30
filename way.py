@@ -66,9 +66,9 @@ async def other(message: Message):
 
 async def cancel(message: Message):
     global last
-    last = ""
     chat_id[message.chat.id] = eval(
         f"{Decimal(str(chat_id[message.chat.id]))}{last}")
+    print(chat_id[message.chat.id], type(chat_id[message.chat.id]))
     await message.answer(f"Число изменено на {last}! текущее число = {chat_id[message.chat.id]}")
 
 
