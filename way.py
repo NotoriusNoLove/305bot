@@ -57,6 +57,7 @@ async def other(message: Message):
         if last == text:
             chat_id[message.chat.id] += text
         else:
+            chat_id[message.chat.id] += text
             last = f"-{text}"
     except:
         print(f"chat_id = {chat_id}, last = {last}")
