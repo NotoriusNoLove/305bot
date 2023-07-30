@@ -50,17 +50,16 @@ async def other(message: Message):
     try:
         text = Decimal(message.text.replace(',', '.'))
     except:
-        await message.answer("invalid number")
+        await message.answer("invalid conver ','")
         return
     try:
         chat_id[message.chat.id] += text
         last = f"-{text}"
     except:
         await message.answer("invalid number")
+        last = '+0'
         return
     await message.answer(f"Число изменено на {message.text}! текущее число = {chat_id[message.chat.id]}")
-    # except:
-    #     await message.answer("message incorrect")
 
 
 async def cancel(message: Message):
