@@ -52,10 +52,12 @@ async def other(message: Message):
     except:
         await message.answer("invalid conver ','")
         return
+
     try:
         chat_id[message.chat.id] += text
         last = f"-{text}"
     except:
+        print(f"chat_id = {chat_id}, last = {last}")
         await message.answer("invalid number")
         last = '+0'
         return
