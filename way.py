@@ -62,7 +62,7 @@ async def other(message: Message):
     except Exception as e:
         print(e)
         await message.answer("invalid number")
-        last = '+0'
+        last = 0
         return
     await message.answer(f"Число изменено на {message.text}! текущее число = {chat_id[message.chat.id]}")
 
@@ -78,5 +78,5 @@ async def cancel(message: Message):
 async def delete(message: Message):
     global count, last
     chat_id[message.chat.id] = 0
-    last = '+0'
+    last = 0
     await message.answer(f"Текущее число = {chat_id[message.chat.id]}")
