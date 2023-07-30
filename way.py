@@ -46,21 +46,21 @@ async def begin(message: Message):
 
 
 async def other(message: Message):
-    global count, last
+    global last
     try:
         text = Decimal(message.text.replace(',', '.'))
     except:
         await message.answer("invalid conver ','")
         return
-
+    print(text, last)
     try:
         if last == text:
             chat_id[message.chat.id] += text
         else:
             chat_id[message.chat.id] += text
             last = f"-{text}"
-    except:
-        print(f"chat_id = {chat_id}, last = {last}")
+    except Exception as e:
+        print(e)
         await message.answer("invalid number")
         last = '+0'
         return
