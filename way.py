@@ -20,7 +20,7 @@ except:
 
 async def begin(message: Message):
     global count, last
-    count = 0
+    chat_id[message.chat.id] = 0
     last = ""
     await message.answer(
         f'Привет я бот который будет прибавлять! сейчас число = {count}',
