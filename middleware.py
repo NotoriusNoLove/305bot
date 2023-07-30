@@ -7,6 +7,7 @@ from way import chat_id
 
 
 async def on_startup():
+    await bot.delete_webhook(drop_pending_updates=True)
     await bot.set_webhook(f'notmeowmeow.ru/bot/305bot', drop_pending_updates=True)
 
 
