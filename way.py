@@ -27,11 +27,12 @@ async def begin(message: Message):
         reply_markup=ReplyKeyboardMarkup(
             keyboard=[
                 [
+                    KeyboardButton(text='+50'),
                     KeyboardButton(text='+30'),
-                    KeyboardButton(text='+5')
+                    KeyboardButton(text='+6')
                 ],
                 [
-                    KeyboardButton(text='+6'),
+                    KeyboardButton(text='+5'),
                     KeyboardButton(text='+4'),
                     KeyboardButton(text='+3')
                 ],
