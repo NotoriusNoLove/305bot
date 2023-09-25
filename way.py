@@ -58,7 +58,7 @@ async def other(message: Message):
         last = f"-{text}"
     except Exception as e:
         print(e)
-        await message.answer("invalid number")
+        # await message.answer("invalid number")
         last = ""
         return
     await message.answer(f"Число изменено на {message.text}! текущее число = {chat_id[message.chat.id]}")
