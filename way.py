@@ -51,7 +51,7 @@ async def other(message: Message):
     try:
         text = Decimal(message.text.replace(',', '.'))
     except:
-        await message.answer("invalid")
+        # await message.answer("invalid")
         return
     try:
         chat_id[message.chat.id] += text
